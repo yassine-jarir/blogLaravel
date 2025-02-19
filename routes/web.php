@@ -16,3 +16,14 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+//Route::get('/category', [\App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
+//Route::get('/category/create', [\App\Http\Controllers\CategoryController::class, 'create'])->name('category.create');
+//Route::post('/category', [\App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
+//Route::get('/category/{id}', [\App\Http\Controllers\CategoryController::class, 'show'])->name('category.show');
+//Route::get('/category/{id}/edit', [\App\Http\Controllers\CategoryController::class, 'edit'])->name('category.edit');
+//Route::put('/category/{id}', [\App\Http\Controllers\CategoryController::class, 'update'])->name('category.update');
+//Route::delete('/category/{id}', [\App\Http\Controllers\CategoryController::class, 'destroy'])->name('category.destroy');
+
+Route::resource('category', \App\Http\Controllers\CategoryController::class);
