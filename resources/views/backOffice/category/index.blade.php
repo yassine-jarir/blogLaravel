@@ -50,7 +50,7 @@
                             <a href="{{ route('category.edit', $category->id) }}" class="text-yellow-600 dark:text-yellow-400 hover:text-yellow-900 dark:hover:text-yellow-200 mr-2 transition">
                                 Edit
                             </a>
-                            <form action="{{ route('category.destroy', $category->id) }}" method="POST" class="inline">
+                            <form action="{{ route('category.destroy', $category) }}" method="POST" class="inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="text-red-600 dark:text-red-400 hover:text-red-900 dark:hover:text-red-200 transition" onclick="return confirm('Are you sure?')">

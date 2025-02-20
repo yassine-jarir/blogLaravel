@@ -17,6 +17,8 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/announcement/{announcement}', [\App\Http\Controllers\HomeController::class, 'show'])->name('announcements.view');
 
 //Route::get('/category', [\App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
 //Route::get('/category/create', [\App\Http\Controllers\CategoryController::class, 'create'])->name('category.create');
@@ -26,4 +28,7 @@ require __DIR__.'/auth.php';
 //Route::put('/category/{id}', [\App\Http\Controllers\CategoryController::class, 'update'])->name('category.update');
 //Route::delete('/category/{id}', [\App\Http\Controllers\CategoryController::class, 'destroy'])->name('category.destroy');
 
-Route::resource('category', \App\Http\Controllers\CategoryController::class);
+Route::middleware(['auth', 'role:admin'])->group(function() {
+    Route::resource('/admin/category', \App\Http\Controllers\CategoryController::class);
+    Route::resource('/admin/announcements', \App\Http\Controllers\AnnouncementController::class);
+});

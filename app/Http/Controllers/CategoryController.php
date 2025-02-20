@@ -12,9 +12,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::query()->orderBy('id')->paginate(10);
+        $categories = Category::query()->orderBy('id')->paginate(5);
 //        dd($categories);
-        return view('category.index', ['categories' => $categories]);
+        return view('backOffice/category.index', ['categories' => $categories]);
     }
 
     /**
@@ -22,7 +22,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        return view('backOffice/category.create');
     }
 
     /**
@@ -36,7 +36,7 @@ class CategoryController extends Controller
         $data['user_id'] = auth()->user()->id;
 //        dd($data);
         $category = Category::create($data);
-        return to_route('category.index ', $category);
+        return to_route('backOffice/category.index ', $category);
     }
 
     /**
@@ -44,7 +44,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('category.index', ['category' => $category]);
+        return view('backOffice/category.index', ['category' => $category]);
     }
 
     /**
@@ -52,7 +52,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('category.edit', ['category' => $category]);
+        return view('backOffice/category.edit', ['category' => $category]);
     }
 
     /**
@@ -64,7 +64,7 @@ class CategoryController extends Controller
             'name' => ['required', 'string']
         ]);
         $category->update($data);
-        return to_route('category.index', $category);
+        return to_route('backOffice/category.index');
     }
 
     /**
@@ -73,7 +73,7 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return to_route('category.index');
+        return to_route('backOffice/category.index');
     }
 
 }
