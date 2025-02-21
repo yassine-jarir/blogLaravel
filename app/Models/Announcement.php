@@ -10,4 +10,9 @@ class Announcement extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = ['title', 'description', 'price', 'picture', 'user_id', 'status'];
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

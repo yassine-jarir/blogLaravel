@@ -20,6 +20,8 @@ require __DIR__.'/auth.php';
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/announcement/{announcement}', [\App\Http\Controllers\HomeController::class, 'show'])->name('announcements.view');
 
+Route::post('/announcements/{announcement}/comments', [\App\Http\Controllers\CommentController::class, 'store'])->name('announcements.comments.store');
+
 //Route::get('/category', [\App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
 //Route::get('/category/create', [\App\Http\Controllers\CategoryController::class, 'create'])->name('category.create');
 //Route::post('/category', [\App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');

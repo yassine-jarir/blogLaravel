@@ -9,11 +9,18 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach($announcements as $announcement)
-            <div
-                class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all hover:-translate-y-1 hover:shadow-xl">
+            <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all hover:-translate-y-1 hover:shadow-xl">
                 <div class="p-4 bg-black/10 border-b border-gray-700">
                     <h3 class="text-xl font-semibold">{{ $announcement->title }}</h3>
                 </div>
+                @if($announcement->picture)
+                    <img src="{{ asset('storage/images/react.jpg')}}" alt="{{ $announcement->title }}"
+                         class="w-full h-48 object-cover">
+                @else
+                    <div class="w-full h-48 bg-gray-700 flex items-center justify-center text-gray-400">
+                        No image available
+                    </div>
+                @endif
                 <div class="p-4">
                     <p class="text-gray-400 mb-4">{{ $announcement->description }}</p>
                 </div>
@@ -31,5 +38,10 @@
                 </div>
             </div>
         @endforeach
+    </div>
+
+    <!-- Pagination -->
+    <div class="mt-4">
+        {{ $announcements->links() }}
     </div>
 @endsection

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ config('app.name', 'Laravel Office') }}</title>
+    <title>{{ config('app.name', 'The Weekly') }}</title>
     @vite('resources/css/app.css')
 </head>
 <body class="bg-gray-900 text-gray-100 min-h-screen">
@@ -14,7 +14,7 @@
         <div class="flex justify-between h-16">
             <div class="flex items-center">
                 <a href="{{ route('home') }}" class="flex items-center font-bold text-xl">
-                    <span class="text-red-500">L</span>aravel Office
+                    <span class="text-red-500">The</span> Weekly
                 </a>
             </div>
             <div class="ml-6 flex items-center">

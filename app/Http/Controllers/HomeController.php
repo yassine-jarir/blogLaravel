@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $announcements = Announcement::query()->orderBy('id')->get();
+        $announcements = Announcement::query()->orderBy('id')->paginate(9);
 //        dd($announcements);
         return view('frontOffice/index', ['announcements' => $announcements]);
     }
