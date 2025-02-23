@@ -36,7 +36,7 @@ class CategoryController extends Controller
         $data['user_id'] = auth()->user()->id;
 //        dd($data);
         $category = Category::create($data);
-        return to_route('backOffice/category.index ', $category);
+        return redirect()->route('category.index');
     }
 
     /**
@@ -44,7 +44,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view('backOffice/category.index', ['category' => $category]);
+        return view('backOffice/category.index', ['categories' => $categories]);
     }
 
     /**
@@ -64,7 +64,7 @@ class CategoryController extends Controller
             'name' => ['required', 'string']
         ]);
         $category->update($data);
-        return to_route('backOffice/category.index');
+        return redirect()->route('category.index');
     }
 
     /**
@@ -73,7 +73,7 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return to_route('backOffice/category.index');
+        return redirect()->route('category.index');
     }
 
 }

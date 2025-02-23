@@ -22,15 +22,15 @@ Route::get('/announcement/{announcement}', [\App\Http\Controllers\HomeController
 
 Route::post('/announcements/{announcement}/comments', [\App\Http\Controllers\CommentController::class, 'store'])->name('announcements.comments.store');
 
-//Route::get('/category', [\App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
-//Route::get('/category/create', [\App\Http\Controllers\CategoryController::class, 'create'])->name('category.create');
-//Route::post('/category', [\App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
-//Route::get('/category/{id}', [\App\Http\Controllers\CategoryController::class, 'show'])->name('category.show');
-//Route::get('/category/{id}/edit', [\App\Http\Controllers\CategoryController::class, 'edit'])->name('category.edit');
-//Route::put('/category/{id}', [\App\Http\Controllers\CategoryController::class, 'update'])->name('category.update');
-//Route::delete('/category/{id}', [\App\Http\Controllers\CategoryController::class, 'destroy'])->name('category.destroy');
+Route::get('/category', [\App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
+Route::get('/category/create', [\App\Http\Controllers\CategoryController::class, 'create'])->name('category.create');
+Route::post('/category', [\App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
+Route::get('/category/{id}', [\App\Http\Controllers\CategoryController::class, 'show'])->name('category.show');
+Route::get('/category/{id}/edit', [\App\Http\Controllers\CategoryController::class, 'edit'])->name('category.edit');
+Route::put('/category/{id}', [\App\Http\Controllers\CategoryController::class, 'update'])->name('category.update');
+Route::delete('/category/{id}', [\App\Http\Controllers\CategoryController::class, 'destroy'])->name('category.destroy');
 
 Route::middleware(['auth', 'role:admin'])->group(function() {
-    Route::resource('/admin/category', \App\Http\Controllers\CategoryController::class);
-    Route::resource('/admin/announcements', \App\Http\Controllers\AnnouncementController::class);
+Route::resource('/admin/category', \App\Http\Controllers\CategoryController::class);
+Route::resource('/admin/announcements', \App\Http\Controllers\AnnouncementController::class);
 });
