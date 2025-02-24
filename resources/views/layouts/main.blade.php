@@ -23,7 +23,7 @@
                         <a href="#" class="text-gray-300 hover:text-white transition-colors">Home</a>
                         <a href="#" class="text-gray-300 hover:text-white transition-colors">Announcements</a>
                         <a href="#" class="text-gray-300 hover:text-white transition-colors">Dashboard</a>
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors">Contact</a>
+                        <a href="/category" class="text-gray-300 hover:text-white transition-colors">Category</a>
                     </div>
                 </div>
             </div>
